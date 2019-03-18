@@ -22,6 +22,8 @@ All generations physically look the same on the connectors. However, the actual 
 
 ![](images/-38e1a2ba-042e-42a4-a729-34b056ef2b79untitled)
 
+> This ASUS Z87-PRO board has two PCIe 3.0 X16 slots (in the green boxes), four PCIe 2.0 X1 slots (the short gold-colored onens in the short orange boxes) and one PCIe 2.0 X16 slot that can operate in either x1 or x4 mode (the long orange box).
+
 # Compatibility
 
 - PCIe slots are upwards and downwards compatible. You can plug a PCIe 1x card into a 16x slot. It gets the same power delivery. It just gets less bandwidth delivered to it. Also, you can plug a 8x card into 4x slot. It'll still work but it will only have half of the bandwidth available.
