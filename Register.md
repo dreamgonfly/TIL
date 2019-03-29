@@ -2,7 +2,7 @@
 
 A register or a **processor register** is a quickly accessible location available to a computer's central processing unit (CPU). Registers usually consist of a small amount of fast storage and are at the top of the memory hierarchy, providing the fastest way to access data.
 
-![](Untitled-78a555b8-61a3-447a-92ab-cb95346cf84f.png)
+![](images/Untitled-78a555b8-61a3-447a-92ab-cb95346cf84f.png)
 
 # Types
 
@@ -22,7 +22,7 @@ A register or a **processor register** is a quickly accessible location availabl
         - [**Memory address register**](https://en.wikipedia.org/wiki/Memory_address_register) (MAR)
 - **Architectural register** - The registers visible to software defined by an architecture may not correspond to the physical hardware, if there is [register renaming](https://en.wikipedia.org/wiki/Register_renaming) being performed by underlying hardware.
 
-![](Untitled-7ed69212-4af0-4675-8b75-53a9094ead18.png)
+![](images/Untitled-7ed69212-4af0-4675-8b75-53a9094ead18.png)
 
 # Architectural register
 
