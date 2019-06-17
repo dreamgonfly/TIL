@@ -1,61 +1,49 @@
 # Register
 
-A register or a **processor register** is a quickly accessible location available to a computer's central processing unit (CPU). Registers usually consist of a small amount of fast storage and are at the top of the memory hierarchy, providing the fastest way to access data.
+A **processor register** (**CPU register**) is one of a small set of data holding places that are part of the computer processor.
 
-![](images/Untitled-78a555b8-61a3-447a-92ab-cb95346cf84f.png)
+![](Untitled-51d171eb-c181-4d9c-9d21-76ff72239be2.png)
 
-# Types
+A register may hold an [instruction](https://whatis.techtarget.com/definition/instruction), a storage address, or any kind of data (such as a bit sequence or individual characters). Some instructions specify registers as part of the instruction. For example, an instruction may specify that the contents of two defined registers be added together and then placed in a specified register.
 
-- **User-accessible registers** can be read or written by machine instructions. The most common division of user-accessible registers is into data registers and address registers.
-    - **Data registers**
-    - **Address registers** hold addresses and are used by instructions that indirectly access memory.
-        - The **stack pointer** is used to manage the run-time stack.
-    - **General-purpose registers** can store both data and addresses.
-    - **Floating-point registers** store floating point numbers.
-    - **Vector registers** hold data for vector processing done by SIMD instructions (Single Instruction, Multiple Data).
-    - **Special-purpose registers**
-- **Internal registers** – registers not accessible by instructions, used internally for processor operations.
-    - **Instruction register**, holding the instruction currently being executed.
-    - Registers related to fetching information from RAM, a collection of storage registers located on separate chips from the CPU:
-        - [**Memory buffer register**](https://en.wikipedia.org/wiki/Memory_buffer_register) (MBR)
-        - [**Memory data register**](https://en.wikipedia.org/wiki/Memory_data_register) (MDR)
-        - [**Memory address register**](https://en.wikipedia.org/wiki/Memory_address_register) (MAR)
-- **Architectural register** - The registers visible to software defined by an architecture may not correspond to the physical hardware, if there is [register renaming](https://en.wikipedia.org/wiki/Register_renaming) being performed by underlying hardware.
+A register must be large enough to hold an instruction - for example, in a [64-bit computer](https://searchdatacenter.techtarget.com/definition/64-bit-processor), a register must be 64 [bits](https://whatis.techtarget.com/definition/bit-binary-digit) in length. In some computer designs, there are smaller registers - for example, *half-registers* - for shorter instructions. Depending on the processor design and language rules, registers may be numbered or have arbitrary names.
 
-![](images/Untitled-7ed69212-4af0-4675-8b75-53a9094ead18.png)
+# Types of registers
 
-# Architectural register
+## MAR
 
-An architectural register is a register implied by the instruction set architecture of the processor you're using. It's architectural, in the sense that the architecture definition says that the register must exist, or at the very least, an implementation must give the *illusion* that the register exists. Architectural registers are the registers the programmer needs to be aware of when programming in assembly language. When an assembly programmer thinks of a specific register by name, most often they're thinking of an architectural register.
+The **MAR (Memory Address Register)** holds the memory addresses of data and instructions. This register is used to access data and instructions from memory during the execution phase of an instruction. Suppose CPU wants to store some data in the memory or to read the data from the memory. It places the address of the-required memory location in the MAR.
 
-# Register size
+## PC
 
-For many years, registers were 32-bit, but now many are 64-bit in size. A 64-bit register is necessary for a 64-bit processor, since it enables the CPU to access 64-bit memory addresses. A 64-bit register can also store 64-bit instructions, which cannot be loaded into a 32-bit register. Therefore, most programs written for 32-bit processors can run on 64-bit computers, while 64-bit programs are not backwards compatible with 32-bit machines.
+The **program counter (PC)**, commonly called the **instruction pointer** (IP) in Intel x86 microprocessors, and sometimes called the **instruction address register**, or just part of the instruction sequencer in some computers, is a processor register.
 
-# Number of registers
+It is a 16 bit special function register in the 8085 microprocessor. It keeps track of the the next memory address of the instruction that is to be executed once the execution of the current instruction is completed. In other words, it holds the address of the memory location of the next instruction when the current instruction is executed by the microprocessor.
 
-Some processors have 8 registers while others have 16, 32, or more. 
+## ACC
 
-# Register file
+This Register is used for storing the Results those are produced by the system. When the CPU will generate some results after the processing then all the results will be stored into the **ACC Register**.
 
-A register file is an array of processor registers in a central processing unit (CPU).
+## MDR
 
-The instruction set architecture of a CPU will almost always define a set of registers which are used to stage data between memory and the functional units on the chip. In simpler CPUs, these architectural registers correspond one-for-one to the entries in a physical register file (PRF) within the CPU. More complicated CPUs use **register renaming**, so that the mapping of which physical entry stores a particular architectural register changes dynamically during execution
+**MDR (Memory Data Register)** is the register of a [computer](http://ecomputernotes.com/fundamental/introduction-to-computer/what-is-computer)'s [control unit](http://ecomputernotes.com/fundamental/introduction-to-computer/control-unit) that contains the **data to be stored in the computer storage** (e.g. RAM), or the **data after a fetch from the computer storage**. It acts **like a buffer** and holds anything that is copied from the memory ready for the processor to use it. **MDR hold the [information](http://ecomputernotes.com/fundamental/information-technology/what-do-you-mean-by-data-and-information) before it goes to the decoder.**
 
-# Vector processor
+MDR which contains the data to be written into or readout of the addressed location. For example, to retrieve the contents of cell 123, we would load the value 123 (in binary, of course) into the MAR and perform a fetch operation. When the operation is done, a copy of the contents of cell 123 would be in the MDR. To store the value 98 into cell 4, we load a 4 into the MAR and a 98 into the MDR and perform a store. When the operation is completed the contents of cell 4 will have been set to 98, by discarding whatever was there previously.
 
-a vector processor or array processor is a central processing unit (CPU) that implements an instruction set containing instructions that operate on one-dimensional arrays of data called vectors, compared to scalar processors, whose instructions operate on single data items.
+### Index Register  ****
 
-As of 2015 most commodity CPUs implement architectures that feature instructions for a form of vector processing on multiple (vectorized) data sets. Common examples include Intel x86's MMX, SSE and AVX instructions, AMD's 3DNow! extensions, Sparc's VIS extension, PowerPC's AltiVec and MIPS' MSA.
+A hardware element which holds a number that can be added to (or, in some cases, subtracted from) the address portion of a computer instruction to form an effective address. Also known as **base register**. An index register in a computer's CPU is a processor register used for modifying operand addresses during the run of a program.
+
+### Memory Buffer Register
+
+MBR stand for ***Memory Buffer Register***. This register holds the contents of data or instruction read from, or written in memory. It means that this register is used to store data/instruction coming from the memory or going to the memory.
+
+### Data Register
+
+A register used in microcomputers to temporarily store data being transmitted to or from a peripheral device.
 
 # Reference
 
-[Processor register - Wikipedia](https://en.wikipedia.org/wiki/Processor_register)
+[What is register (processor register, CPU register)? - Definition from WhatIs.com](https://whatis.techtarget.com/definition/register)
 
-[How many registers are there in the CPU?](https://www.quora.com/How-many-registers-are-there-in-the-CPU)
-
-[Register Definition](https://techterms.com/definition/register)
-
-[Register file - Wikipedia](https://en.wikipedia.org/wiki/Register_file)
-
-[Vector processor - Wikipedia](https://en.wikipedia.org/wiki/Vector_processor)
+[Register - What is Registers? Types of Registers](http://ecomputernotes.com/fundamental/input-output-and-memory/what-is-registers-function-performed-by-registers-types-of-registers)
