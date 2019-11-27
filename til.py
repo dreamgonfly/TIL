@@ -12,6 +12,7 @@ from glob import glob
 import re
 import subprocess
 import os
+from urllib.parse import unquote
 
 DOWNLOAD_DIR = Path(os.environ['HOME'] + '/Downloads')
 TIL_REPO = Path(os.environ['HOME'] + '/Codes/personal/TIL')
@@ -32,11 +33,13 @@ def main():
 	new_markdown = TIL_REPO.joinpath(new_name)
 	with markdown_to_edit.open() as to_edit, new_markdown.open('w') as editted:
 		for line in to_edit:
-			match = re.match('\!\[\]\((.+?)\)', line)
+			match = re.match('\!\[.+?\]\((.+?)\)', line)
 			if match:
-				image_name = match.group(1)
+				image_name = unquote(match.group(1))
 				image_path = directory_to_extract_to.joinpath(image_name)
-				image_path.rename(TIL_REPO.joinpath('images', image_name))
+				new_image_path = TIL_REPO.joinpath('images', image_name)
+				new_image_path.parent.mkdir(parents=True, exist_ok=True)
+				image_path.rename(new_image_path)
 				line = f"![](images/{image_name})"
 			editted.write(line)
 
