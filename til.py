@@ -27,7 +27,7 @@ def main():
 	glob_result = list(directory_to_extract_to.glob('*.md'))
 	assert len(glob_result) == 1
 	markdown_to_edit = glob_result[0]
-	subject_name = '-'.join(markdown_to_edit.stem.split('-')[:-5])
+	subject_name = '-'.join(markdown_to_edit.stem.split('-'))
 	new_name = subject_name + '.md'
 	new_markdown = TIL_REPO.joinpath(new_name)
 	with markdown_to_edit.open() as to_edit, new_markdown.open('w') as editted:
