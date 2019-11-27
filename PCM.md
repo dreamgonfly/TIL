@@ -2,8 +2,7 @@
 
 **Pulse-code modulation (PCM)** is a method used to digitally represent sampled analog signals. In a PCM stream, the amplitude of the analog signal is sampled regularly at uniform intervals, and each sample is quantized to the nearest value within a range of digital steps.
 
-![PCM/Untitled.png](PCM/Untitled.png)
-
+![](images/PCM/Untitled.png)
 # Two properties
 
 A PCM stream has two basic properties that determine the stream's fidelity to the original analog signal: the **sampling rate**, which is the number of times per second that samples are taken; and the **bit depth**, which determines the number of possible digital values that can be used to represent each sample.
@@ -14,8 +13,7 @@ Recording software initially uses the PCM format before converting audio into an
 
 # Process
 
-![PCM/Untitled%201.png](PCM/Untitled%201.png)
-
+![](images/PCM/Untitled 1.png)
 PAM: Pulse Amplitude Modulation, 펄스진폭변조
 
 # Alternative Technologies
