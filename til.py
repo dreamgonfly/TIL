@@ -20,6 +20,7 @@ TIL_REPO = Path(os.environ['HOME'] + '/Codes/personal/TIL')
 
 def main():
 	args = docopt(__doc__)
+	os.chdir(TIL_REPO)
 	subprocess.run(['git', 'pull'])
 	zip_filename = args["<zip_filename>"] + '.zip'
 	path_to_zip_file = Path(DOWNLOAD_DIR, zip_filename)
@@ -44,7 +45,6 @@ def main():
 				line = f"![](images/{image_name})"
 			editted.write(line)
 
-	os.chdir(TIL_REPO)
 	subprocess.run(['git', 'add', '--all'])
 	subprocess.run(['git', 'commit', '--message', subject_name])
 	subprocess.run(['git', 'push'])
